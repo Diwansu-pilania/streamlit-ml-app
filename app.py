@@ -1,30 +1,40 @@
-import streamlit as st
-import pickle
-import pandas as pd
-import numpy as np
+from ._anvil_designer import Form1Template
+from anvil import *
+import anvil.server
 
-# Load the trained model
-with open("model(1).pkl", "rb") as f:
-    model = pickle.load(f)
+class Form1(Form1Template):
+  
+    def __init__(self, **properties):
+        # Set Form properties and Data Bindings.
+        self.init_components(**properties)
 
-# Load dataset to get feature names
-df = pd.read_csv("data.csv", encoding="latin1")  # Adjust encoding if needed
-feature_names = df.columns.drop('no2')  # Exclude target column
+        # Debugging: Print available attributes
+        print(dir(self)) 
 
-st.title("🌍 NO₂ Level Prediction App")
+        # Any code you write here will run before the form opens.
 
-st.write("Enter the required values to predict NO₂ levels in air quality.")
-
-# Create input fields for all features dynamically
-user_input = []
-for feature in feature_names:
-    value = st.number_input(f"Enter {feature}", value=0.0)
-    user_input.append(value)
-
-# Convert input to NumPy array
-user_input = np.array([user_input]).reshape(1, -1)
-
-# Predict NO₂ levels
-if st.button("Predict NO₂ Level"):
-    prediction = model.predict(user_input)[0]
-    st.success(f"Predicted NO₂ Level: {prediction:.2f}")
+    def prediction_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        try:
+            # Call the server function to get the prediction
+            no2 = anvil.server.call('predict_no2',
+                                     self.state.text,
+                                     self.location.text,
+                                     self.type.text,
+                                     self.so2.text,  # Convert to float
+                                     self.rspm.text,  # Convert to float
+                                     self.spm.text,    
+                                     self.pm2_5.text, # Convert to float
+                                     self.year.text,
+                                     self.month.text,
+                                     self.day.text
+                                    )
+            if no2 is not None:
+                self.predicted_no2.text = f"Predicted NO2 Level: {no2}"
+                self.predicted_no2.visible = True
+            else:
+                self.predicted_no2.text = "Prediction failed."
+                self.predicted_no2.visible = True
+        except Exception as e:
+            self.predicted_no2.text = f"Error: {str(e)}"
+            self.predicted_no2.visible = True
