@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 # Load the trained model
-with open("model.pkl", "rb") as f:
+with open("model(1).pkl", "rb") as f:
     model = pickle.load(f)
 
 # Load dataset to get feature names
