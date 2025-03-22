@@ -1,22 +1,28 @@
 # streamlit-ml-app
 
-##NO2 Prediction Machine Learning Model
+##NO2 Prediction Machine Learning Model##
 
 Web App Link:
 
 [Provide your web app link here]
 
-Model Accuracy:
+MODEL ACCURACY:
+
+
+IN PERCENTS : 82 %
 
 Mean Absolute Error (MAE): 3.1067
 
 R-Squared Score (R²): 0.82
 
-Overview:
+
+OVERVIEW:
 
 This machine learning model is built to predict the NO2 (Nitrogen Dioxide) levels based on various environmental features such as SO2, RSPM, SPM, PM2.5, and other relevant data.
 
-Dataset:
+
+DATASET:
+
 
 The dataset includes air pollution parameters collected from different locations, including:
 
@@ -38,7 +44,11 @@ PM2.5 (Particulate matter smaller than 2.5 micrometers)
 
 Year, Month, Day
 
-Model Training:
+
+
+MODEL TRAINING:
+
+
 
 Algorithm Used: Random Forest Regressor
 
@@ -48,7 +58,11 @@ Number of Estimators: 100
 
 Random State: 42
 
-Steps to Run the Model:
+
+
+
+STEPS TO RUN THE MODEL:
+
 
 Install Dependencies
 
@@ -62,7 +76,11 @@ Enter the required input values in the web app
 
 Click 'Submit' to get NO2 predictions
 
-Project Files:
+
+
+PROJECT FILES:
+
+
 
 app.py: Streamlit web application for user input and predictions.
 
@@ -72,7 +90,10 @@ data.csv: Dataset used for training and testing.
 
 requirements.txt: List of required dependencies.
 
-How the Model Works:
+
+
+HOW THE MODEL WORDS:
+
 
 The trained model takes user input features through the web app.
 
@@ -80,7 +101,11 @@ It processes the inputs and predicts the NO2 levels.
 
 The result is displayed on the web application interface.
 
-Future Improvements:
+
+
+FUTURE IMPROVEMENTS:
+
+
 
 Adding more environmental factors for better accuracy.
 
@@ -88,6 +113,11 @@ Implementing time-series forecasting for long-term NO2 predictions.
 
 Deploying the model on a cloud service for scalability.
 
-Author:
 
-[Your Name]For any issues or improvements, feel free to contribute or contact me.
+
+AUTHOR:
+
+
+
+DIWANSU PILANIA 
+For any issues or improvements, feel free to contribute or contact me.
