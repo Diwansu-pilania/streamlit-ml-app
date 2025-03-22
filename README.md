@@ -4,7 +4,7 @@
 
 Web App Link:
 
-[Provide your web app link here]
+https://bare-truthful-zzyzx.anvil.app
 
 MODEL ACCURACY:
 
