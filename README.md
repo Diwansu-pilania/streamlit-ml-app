@@ -92,7 +92,7 @@ requirements.txt: List of required dependencies.
 
 
 
-HOW THE MODEL WORDS:
+HOW THE MODEL WORKS:
 
 
 The trained model takes user input features through the web app.
